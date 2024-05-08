@@ -11,19 +11,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
     {
         public string Nome { get; set; }
         public string Responsavel { get; set; }
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
         public string Endereco { get; set; }
-        public Reserva Reserva { get; set; }
-        public Emprestimo Emprestimo { get; set; }
 
-        public Amigo(string nome, string responsavel, int telefone, string endereco, Reserva reserva, Emprestimo emprestimo)
+        public Amigo(string nome, string responsavel, string telefone, string endereco)
         {
             Nome = nome;
             Responsavel = responsavel;
             Telefone = telefone;
             Endereco = endereco;
-            Reserva = reserva;
-            Emprestimo = emprestimo;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -34,8 +30,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             this.Responsavel = registroNovo.Responsavel;
             this.Telefone = registroNovo.Telefone;
             this.Endereco = registroNovo.Endereco;
-            this.Reserva = registroNovo.Reserva;
-            this.Emprestimo = registroNovo.Emprestimo;
         }
     }
 }

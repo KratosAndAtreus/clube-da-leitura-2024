@@ -1,4 +1,6 @@
-﻿namespace ClubeDaLeitura.ConsoleApp
+﻿using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+namespace ClubeDaLeitura.ConsoleApp
 {
     internal class Program
     {
