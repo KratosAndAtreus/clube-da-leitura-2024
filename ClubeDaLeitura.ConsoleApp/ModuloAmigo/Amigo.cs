@@ -26,5 +26,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             Emprestimo = emprestimo;
         }
 
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Amigo registroNovo = (Amigo)novoRegistro;
+
+            this.Nome = registroNovo.Nome;
+            this.Responsavel = registroNovo.Responsavel;
+            this.Telefone = registroNovo.Telefone;
+            this.Endereco = registroNovo.Endereco;
+            this.Reserva = registroNovo.Reserva;
+            this.Emprestimo = registroNovo.Emprestimo;
+        }
     }
 }

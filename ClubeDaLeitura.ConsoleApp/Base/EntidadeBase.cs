@@ -8,8 +8,8 @@ namespace ClubeDaLeitura.ConsoleApp.Base
 {
     public abstract class EntidadeBase
     {
-        public int id {  get; set; }
+        public int id { get; set; }
 
-
+        public abstract void AtualizarRegistro(EntidadeBase novoRegistro);
     }
 }
