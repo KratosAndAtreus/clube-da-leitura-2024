@@ -22,5 +22,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
             Amigo = amigo;
             StatusDaReserva = statusDaReserva;
         }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Reserva registroNovo = (Reserva)novoRegistro;
+
+            this.Revista = registroNovo.Revista;
+            this.DataDaReserva = registroNovo.DataDaReserva;
+            this.Amigo = registroNovo.Amigo;
+            this.StatusDaReserva = registroNovo.StatusDaReserva;
+        }
     }
 }

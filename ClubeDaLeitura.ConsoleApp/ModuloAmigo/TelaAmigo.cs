@@ -1,4 +1,3 @@
-using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Base;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
