@@ -24,5 +24,16 @@ namespace ClubeDaLeitura.ConsoleApp
             DataDeDevolucao = dataDeDevolucao;
             StatusDoEmprestimo = statusDoEmprestimo;
         }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Emprestimo registroNovo = (Emprestimo)novoRegistro;
+
+            this.Amigo = registroNovo.Amigo;
+            this.Revista = registroNovo.Revista;
+            this.DataDeEmprestimo = registroNovo.DataDeEmprestimo;
+            this.DataDeDevolucao = registroNovo.DataDeDevolucao;
+            this.StatusDoEmprestimo = registroNovo.StatusDoEmprestimo;
+        }
     }
 }

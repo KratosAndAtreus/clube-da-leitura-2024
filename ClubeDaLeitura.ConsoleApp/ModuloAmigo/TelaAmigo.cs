@@ -1,9 +1,8 @@
-using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Base;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
-    internal class ModuloAmigo : TelaBase
+    internal class TelaAmigo : TelaBase
     {
         protected override EntidadeBase ObterRegistro()
         {
