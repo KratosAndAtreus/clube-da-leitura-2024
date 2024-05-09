@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
@@ -15,14 +16,11 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaAmigo telaAmigo = new TelaAmigo();
             telaAmigo.tipoEntidade = "Amigo";
             telaAmigo.repositorio = repositorioAmigo;
-            
+
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
-
-            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
-
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaRevista telaRevista = new TelaRevista();
@@ -35,8 +33,6 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevista = repositorioRevista;
 
-            RepositorioReserva repositorioReserva = new RepositorioReserva();
-            
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
             TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
             telaEmprestimo.tipoEntidade = "Emprestimo";
@@ -61,6 +57,11 @@ namespace ClubeDaLeitura.ConsoleApp
             telaReserva.telaAmigo = telaAmigo;
             telaReserva.repositorioAmigo = repositorioAmigo;
             telaReserva.repositorioRevista = repositorioRevista;
+
+            RepositorioMulta repositorioMulta = new RepositorioMulta();
+            TelaMulta telaMulta = new TelaMulta();
+            telaMulta.tipoEntidade = "Milta";
+            telaMulta.repositorio = repositorioMulta;
 
             while (true)
             {
@@ -107,8 +108,46 @@ namespace ClubeDaLeitura.ConsoleApp
 
                     else if (operacaoEscolhida == '5')
                     {
-                        TelaCaixa telaConvertida = (TelaCaixa)tela;
-                        telaConvertida.VisualizarRevistas();
+                        if (tela.tipoEntidade == "Caixa")
+                        {
+                            TelaCaixa telaConvertida = (TelaCaixa)tela;
+                            telaConvertida.VisualizarRevistas();
+                        }
+
+                        else if (tela.tipoEntidade == "Amigo")
+                        {
+                            TelaAmigo telaConvertidaAmigo = (TelaAmigo)tela;
+                            telaConvertidaAmigo.MenuMulta();
+
+                            while (true)
+                            {
+                                tela = telaMulta;
+                                operacaoEscolhida = tela.ApresentarMenu();
+                                
+                                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                                {
+                                    break;
+                                }
+
+                                if (operacaoEscolhida == '1')
+                                {
+
+                                }
+                                else if (operacaoEscolhida == '2')
+                                {
+
+                                }
+
+                                
+
+                            }
+
+                        }
+
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
             }
