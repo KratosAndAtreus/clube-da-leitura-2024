@@ -22,7 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             return new Amigo(nome, responsavel, telefone, endereco);
         }
 
-        protected override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("Visualizando amigos");
 

@@ -6,14 +6,14 @@ using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
 {
     public class Emprestimo : EntidadeBase
     {
         public Amigo Amigo { get; set; }
         public Revista Revista { get; set; }
-        public System.DateTime DataDeEmprestimo { get; set; }
-        public System.DateTime DataDeDevolucao { get; set; }
+        public DateTime DataDeEmprestimo { get; set; }
+        public DateTime DataDeDevolucao { get; set; }
         public bool StatusDoEmprestimo { get; set; }
 
         public Emprestimo(Amigo amigo, Revista revista, DateTime dataDeEmprestimo, DateTime dataDeDevolucao, bool statusDoEmprestimo)
@@ -29,11 +29,11 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             Emprestimo registroNovo = (Emprestimo)novoRegistro;
 
-            this.Amigo = registroNovo.Amigo;
-            this.Revista = registroNovo.Revista;
-            this.DataDeEmprestimo = registroNovo.DataDeEmprestimo;
-            this.DataDeDevolucao = registroNovo.DataDeDevolucao;
-            this.StatusDoEmprestimo = registroNovo.StatusDoEmprestimo;
+            Amigo = registroNovo.Amigo;
+            Revista = registroNovo.Revista;
+            DataDeEmprestimo = registroNovo.DataDeEmprestimo;
+            DataDeDevolucao = registroNovo.DataDeDevolucao;
+            StatusDoEmprestimo = registroNovo.StatusDoEmprestimo;
         }
     }
 }

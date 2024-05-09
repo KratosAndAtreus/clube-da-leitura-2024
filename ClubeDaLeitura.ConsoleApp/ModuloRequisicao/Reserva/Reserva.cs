@@ -6,7 +6,7 @@ using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
-namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
+namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
 {
     public class Reserva : EntidadeBase
     {
@@ -27,10 +27,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
         {
             Reserva registroNovo = (Reserva)novoRegistro;
 
-            this.Revista = registroNovo.Revista;
-            this.DataDaReserva = registroNovo.DataDaReserva;
-            this.Amigo = registroNovo.Amigo;
-            this.StatusDaReserva = registroNovo.StatusDaReserva;
+            Revista = registroNovo.Revista;
+            DataDaReserva = registroNovo.DataDaReserva;
+            Amigo = registroNovo.Amigo;
+            StatusDaReserva = registroNovo.StatusDaReserva;
         }
     }
 }

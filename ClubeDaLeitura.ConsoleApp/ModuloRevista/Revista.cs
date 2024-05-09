@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
-using ClubeDaLeitura.ConsoleApp.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
@@ -36,5 +36,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             this.Caixa = registroNovo.Caixa;
             this.Status = registroNovo.Status;
         }
+
     }
 }

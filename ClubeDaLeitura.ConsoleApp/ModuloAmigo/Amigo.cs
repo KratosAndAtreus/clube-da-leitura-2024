@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Base;
-using ClubeDaLeitura.ConsoleApp.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
