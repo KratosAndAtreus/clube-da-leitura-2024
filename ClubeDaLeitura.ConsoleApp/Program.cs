@@ -116,16 +116,14 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         else if (tela.tipoEntidade == "Amigo")
                         {
-                            TelaAmigo telaConvertidaAmigo = (TelaAmigo)tela;
-                            telaConvertidaAmigo.MenuMulta();
-
-                            while (true)
+                           while (true)
                             {
                                 tela = telaMulta;
                                 operacaoEscolhida = tela.ApresentarMenu();
                                 
                                 if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
                                 {
+                                    tela = telaAmigo;
                                     break;
                                 }
 
@@ -137,8 +135,6 @@ namespace ClubeDaLeitura.ConsoleApp
                                 {
 
                                 }
-
-                                
 
                             }
 

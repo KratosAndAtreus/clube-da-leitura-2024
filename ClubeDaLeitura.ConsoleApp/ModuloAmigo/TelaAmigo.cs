@@ -73,31 +73,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             return operacaoEscolhida;
         }
 
-        public char MenuMulta()
-        {
-
-            Console.Clear();
-
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
-            Console.WriteLine("----------------------------------------");
-
-            Console.WriteLine();
-
-            Console.WriteLine($"1 - visualizar Multas");
-            Console.WriteLine($"2 - Pagar Multas");
-
-            Console.WriteLine("S - Voltar");
-
-            Console.WriteLine();
-
-            Console.Write("Escolha uma das opções: ");
-            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
-
-            return operacaoEscolhida;
-        }
-
-
         public void CadastroTeste()
         {
             Amigo amigoTeste = new Amigo("Fulano", "Beltrano", "32220011", "Rua Vasco da Gama");
