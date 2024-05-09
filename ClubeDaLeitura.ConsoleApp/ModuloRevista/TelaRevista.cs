@@ -14,6 +14,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
         protected override EntidadeBase ObterRegistro()
         {
+            
             Console.WriteLine("Por favor, informe o TITULO da revista");
             string titulo = Convert.ToString(Console.ReadLine());
 
@@ -30,7 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
 
             bool status = false;
-            
+
             return new Revista(titulo, numeroDaEdicao, ano, caixaSelecionada, status);
         }
 
@@ -58,6 +59,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             Console.ReadLine();
             Console.WriteLine();
+        }
+
+        public void CadastroTeste()
+        {
+            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionaPorId(0);
+            Revista revistaTeste = new Revista("Recreio", 22, "2002", caixaSelecionada, false);
+
+
+            repositorio.Cadastrar(revistaTeste);
         }
     }
 }

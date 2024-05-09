@@ -24,6 +24,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Ano = ano;
             Caixa = caixa;
             Status = status;
+
+            Caixa.ColocarRevista(this);
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -37,5 +39,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             this.Status = registroNovo.Status;
         }
 
+        
     }
 }

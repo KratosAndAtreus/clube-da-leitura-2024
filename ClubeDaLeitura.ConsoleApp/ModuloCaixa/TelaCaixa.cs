@@ -49,13 +49,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.WriteLine();
         }
 
-        public void CadastroTeste()
-        {
-            Caixa caixaTeste = new Caixa("Teste", "Branca", 1);
-
-            repositorio.Cadastrar(caixaTeste);
-        }
-
         public override char ApresentarMenu()
         {
             Console.Clear();
@@ -91,21 +84,28 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Caixa caixaSelecionada = (Caixa)repositorio.SelecionaPorId(idCaixa);
 
             Console.WriteLine(
-                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-                "Id", "Titulo", "Numero da Edicao", "Ano", "Caixa", "Emprestada ?"
+                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
+                "Id", "Titulo", "Numero da Edicao", "Ano", "Emprestada ?"
             );
 
             foreach (Revista revista in caixaSelecionada.Revistas)
             {
                 Console.WriteLine(
-               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
                 revista.id, revista.Titulo, revista.NumeroDaEdicao,
-                revista.Ano, revista.Caixa.Cor, revista.Status
+                revista.Ano, revista.Status
               );
             }
 
             Console.ReadLine();
             Console.WriteLine();
+        }
+
+        public void CadastroTeste()
+        {
+            Caixa caixaTeste = new Caixa("Teste", "Branca", 1);
+
+            repositorio.Cadastrar(caixaTeste);
         }
     }
 }

@@ -27,5 +27,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             this.Cor = registroNovo.Cor;
             this.TempoDeEmprestimo = registroNovo.TempoDeEmprestimo;
         }
+
+        public void ColocarRevista(Revista revista)
+        {
+            Revistas.Add(revista);
+        }
     }
 }
