@@ -1,12 +1,16 @@
 using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
-using ClubeDaLeitura.ConsoleApp.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     internal class TelaRevista : TelaBase
     {
+        public TelaCaixa telaCaixa = null;
+
+        public RepositorioCaixa repositorioCaixa = null;
 
         protected override EntidadeBase ObterRegistro()
         {
@@ -19,6 +23,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Console.WriteLine("Por favor, informe o ANO DE PUBLICACAO da revista");
             string ano = Convert.ToString(Console.ReadLine());
 
+            telaCaixa.VisualizarRegistros(false);
+            
             Console.WriteLine("Por favor, informe o ID da CAIXA da revista");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
             Caixa caixaSelecionada = (Caixa)repositorio.SelecionaPorId(idCaixa);
@@ -28,7 +34,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             return new Revista(titulo, numeroDaEdicao, ano, caixaSelecionada, status);
         }
 
-        protected override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("Visualizando Revistas");
 

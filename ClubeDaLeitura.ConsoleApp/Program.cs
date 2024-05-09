@@ -1,8 +1,8 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
-using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
-using ClubeDaLeitura.ConsoleApp.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp
@@ -13,15 +13,31 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
             TelaAmigo telaAmigo = new TelaAmigo();
+            telaAmigo.tipoEntidade = "Amigo";
+            telaAmigo.repositorio = repositorioAmigo;
             
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
-            
+            TelaCaixa telaCaixa = new TelaCaixa();
+            telaCaixa.tipoEntidade = "Caixa";
+            telaCaixa.repositorio = repositorioCaixa;
 
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
 
             RepositorioReserva repositorioReserva = new RepositorioReserva();
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
+            TelaRevista telaRevista = new TelaRevista();
+            telaRevista.tipoEntidade = "Revista";
+            telaRevista.repositorio = repositorioRevista;
+
+            telaRevista.telaCaixa = telaCaixa;
+            telaRevista.repositorioCaixa = repositorioCaixa;
+
+            telaCaixa.telaRevista = telaRevista;
+            telaCaixa.repositorioRevista = repositorioRevista;
+
+            telaAmigo.CadastroTeste();
+            telaCaixa.CadastroTeste();
 
             while (true)
             {
@@ -32,11 +48,11 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 TelaBase tela = null;
 
-                //if (opcaoPrincipalEscolhida == '1')
-                //    tela = telaAmigo;
+                if (opcaoPrincipalEscolhida == '1')
+                    tela = telaAmigo;
 
-                //else if (opcaoPrincipalEscolhida == '2')
-                //    tela = telaCaixa;
+                else if (opcaoPrincipalEscolhida == '2')
+                    tela = telaCaixa;
 
                 //else if (opcaoPrincipalEscolhida == '3')
                 //    tela = telaEmprestimo;
@@ -44,25 +60,34 @@ namespace ClubeDaLeitura.ConsoleApp
                 //else if (opcaoPrincipalEscolhida == '4')
                 //    tela = telaReserva;
 
-                //else if (opcaoPrincipalEscolhida == '5')
-                //    tela = telaRevista;
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaRevista;
 
-                char operacaoEscolhida = tela.ApresentarMenu();
+                while (true)
+                {
+                    char operacaoEscolhida = tela.ApresentarMenu();
 
-                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
-                    continue;
+                    if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                        break;
 
-                if (operacaoEscolhida == '1')
-                    tela.Registrar();
+                    if (operacaoEscolhida == '1')
+                        tela.Registrar();
 
-                else if (operacaoEscolhida == '2')
-                    tela.Editar();
+                    else if (operacaoEscolhida == '2')
+                        tela.Editar();
 
-                else if (operacaoEscolhida == '3')
-                    tela.Excluir();
+                    else if (operacaoEscolhida == '3')
+                        tela.Excluir();
 
-                else if (operacaoEscolhida == '4')
-                    continue;//tela.VisualizarRegistros(true);
+                    else if (operacaoEscolhida == '4')
+                        tela.VisualizarRegistros(true);
+
+                    else if (operacaoEscolhida == '5')
+                    {
+                        TelaCaixa telaConvertida = (TelaCaixa)tela;
+                        telaConvertida.VisualizarRevistas();
+                    }
+                }
             }
         }
     }

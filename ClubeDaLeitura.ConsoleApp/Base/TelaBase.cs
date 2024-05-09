@@ -11,7 +11,7 @@ namespace ClubeDaLeitura.ConsoleApp.Base
         public string tipoEntidade = "";
         public RepositorioBase repositorio = null;
 
-        public char ApresentarMenu()
+        public virtual char ApresentarMenu()
         {
             Console.Clear();
 
@@ -98,7 +98,7 @@ namespace ClubeDaLeitura.ConsoleApp.Base
             ExibirMensagem("Remoção concluida com sucesso", ConsoleColor.Green);
         }
 
-        protected abstract void VisualizarRegistros(bool verTudo);
+        public abstract void VisualizarRegistros(bool verTudo);
 
         protected abstract EntidadeBase ObterRegistro();
 
