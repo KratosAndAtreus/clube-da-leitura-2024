@@ -12,13 +12,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
     {
         public Revista Revista { get; set; }
         public DateTime DataDaReserva { get; set; }
+        public DateTime DataLimite {  get; set; }
         public Amigo Amigo { get; set; }
         public bool StatusDaReserva { get; set; }
 
-        public Reserva(Revista revista, DateTime dataDaReserva, Amigo amigo, bool statusDaReserva)
+        public Reserva(Revista revista, DateTime dataDaReserva, DateTime dataLimite, Amigo amigo, bool statusDaReserva)
         {
             Revista = revista;
             DataDaReserva = dataDaReserva;
+            DataLimite = dataLimite;
             Amigo = amigo;
             StatusDaReserva = statusDaReserva;
         }

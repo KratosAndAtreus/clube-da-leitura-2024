@@ -23,7 +23,6 @@ namespace ClubeDaLeitura.ConsoleApp
 
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
 
-            RepositorioReserva repositorioReserva = new RepositorioReserva();
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaRevista telaRevista = new TelaRevista();
@@ -38,6 +37,15 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaAmigo.CadastroTeste();
             telaCaixa.CadastroTeste();
+
+            RepositorioReserva repositorioReserva = new RepositorioReserva();
+            TelaReserva telaReserva = new TelaReserva();
+            telaReserva.tipoEntidade = "Reserva";
+            telaReserva.repositorio = repositorioReserva;
+            telaReserva.telaRevista = telaRevista;
+            telaReserva.telaAmigo = telaAmigo;
+            telaReserva.repositorioAmigo = repositorioAmigo;
+            telaReserva.repositorioRevista = repositorioRevista;
 
             while (true)
             {
@@ -57,8 +65,8 @@ namespace ClubeDaLeitura.ConsoleApp
                 //else if (opcaoPrincipalEscolhida == '3')
                 //    tela = telaEmprestimo;
 
-                //else if (opcaoPrincipalEscolhida == '4')
-                //    tela = telaReserva;
+                else if (opcaoPrincipalEscolhida == '4')
+                    tela = telaReserva;
 
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaRevista;
