@@ -100,7 +100,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
                 revista.id, revista.Titulo, revista.NumeroDaEdicao,
-                revista.Ano, revista.Caixa, revista.Status
+                revista.Ano, revista.Caixa.Cor, revista.Status
               );
             }
 

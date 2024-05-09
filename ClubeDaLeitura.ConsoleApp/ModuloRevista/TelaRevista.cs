@@ -27,10 +27,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             
             Console.WriteLine("Por favor, informe o ID da CAIXA da revista");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
-            Caixa caixaSelecionada = (Caixa)repositorio.SelecionaPorId(idCaixa);
+            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
 
             bool status = false;
-
+            
             return new Revista(titulo, numeroDaEdicao, ano, caixaSelecionada, status);
         }
 
@@ -52,7 +52,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
                 revista.id, revista.Titulo, revista.NumeroDaEdicao,
-                revista.Ano, revista.Caixa, revista.Status
+                revista.Ano, revista.Caixa.Etiqueta, revista.Status
               );
             }
 
