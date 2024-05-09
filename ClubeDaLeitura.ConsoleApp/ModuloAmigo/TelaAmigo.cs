@@ -1,4 +1,5 @@
 using ClubeDaLeitura.ConsoleApp.Base;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
@@ -55,5 +56,3 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
     }
 }
-
-//continuar daqui inplementar estes metodos
