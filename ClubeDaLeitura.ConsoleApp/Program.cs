@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
@@ -58,6 +59,11 @@ namespace ClubeDaLeitura.ConsoleApp
             telaReserva.repositorioAmigo = repositorioAmigo;
             telaReserva.repositorioRevista = repositorioRevista;
 
+            RepositorioMulta repositorioMulta = new RepositorioMulta();
+            TelaMulta telaMulta = new TelaMulta();
+            telaMulta.tipoEntidade = "Milta";
+            telaMulta.repositorio = repositorioMulta;
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -103,8 +109,42 @@ namespace ClubeDaLeitura.ConsoleApp
 
                     else if (operacaoEscolhida == '5')
                     {
-                        TelaCaixa telaConvertida = (TelaCaixa)tela;
-                        telaConvertida.VisualizarRevistas();
+                        if (tela.tipoEntidade == "Caixa")
+                        {
+                            TelaCaixa telaConvertida = (TelaCaixa)tela;
+                            telaConvertida.VisualizarRevistas();
+                        }
+
+                        else if (tela.tipoEntidade == "Amigo")
+                        {
+                            while (true)
+                            {
+                                tela = telaMulta;
+                                operacaoEscolhida = tela.ApresentarMenu();
+
+                                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                                {
+                                    tela = telaAmigo;
+                                    break;
+                                }
+
+                                if (operacaoEscolhida == '1')
+                                {
+
+                                }
+                                else if (operacaoEscolhida == '2')
+                                {
+
+                                }
+
+                            }
+
+                        }
+
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
             }

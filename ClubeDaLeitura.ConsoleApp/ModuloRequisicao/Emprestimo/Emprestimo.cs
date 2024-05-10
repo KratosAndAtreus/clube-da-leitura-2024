@@ -24,6 +24,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             StatusDoEmprestimo = statusDoEmprestimo;
         }
 
+        public Emprestimo() 
+        {
+            
+        }
+
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Emprestimo registroNovo = (Emprestimo)novoRegistro;
