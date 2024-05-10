@@ -17,6 +17,14 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.tipoEntidade = "Amigo";
             telaAmigo.repositorio = repositorioAmigo;
 
+            RepositorioMulta repositorioMulta = new RepositorioMulta();
+            TelaMulta telaMulta = new TelaMulta();
+            telaMulta.tipoEntidade = "Multa";
+            telaMulta.repositorio = repositorioMulta;
+
+            telaMulta.telaAmigo = telaAmigo;
+            telaMulta.repositorioAmigo = repositorioAmigo;
+
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
@@ -41,9 +49,11 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaEmprestimo.telaAmigo = telaAmigo;
             telaEmprestimo.telaRevista = telaRevista;
+            telaEmprestimo.telaMulta = telaMulta;
 
             telaEmprestimo.repositorioAmigo = repositorioAmigo;
             telaEmprestimo.repositorioRevista = repositorioRevista;
+            telaEmprestimo.repositorioMulta = repositorioMulta;
 
             telaAmigo.CadastroTeste();
             telaCaixa.CadastroTeste();
@@ -59,10 +69,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaReserva.repositorioAmigo = repositorioAmigo;
             telaReserva.repositorioRevista = repositorioRevista;
 
-            RepositorioMulta repositorioMulta = new RepositorioMulta();
-            TelaMulta telaMulta = new TelaMulta();
-            telaMulta.tipoEntidade = "Multa";
-            telaMulta.repositorio = repositorioMulta;
+
 
             while (true)
             {
@@ -130,7 +137,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                                 if (operacaoEscolhida == '1')
                                 {
-
+                                    telaAmigo.VisualizarMultas();
                                 }
                                 else if (operacaoEscolhida == '2')
                                 {
@@ -152,7 +159,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         else
                             continue;
-                        
+
                     }
                 }
             }

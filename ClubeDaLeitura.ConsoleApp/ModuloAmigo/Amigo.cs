@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
         public string Responsavel { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
+        public ArrayList Multas {  get; set; } = new ArrayList();
 
         public Amigo(string nome, string responsavel, string telefone, string endereco)
         {
@@ -30,6 +32,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             this.Responsavel = registroNovo.Responsavel;
             this.Telefone = registroNovo.Telefone;
             this.Endereco = registroNovo.Endereco;
+        }
+
+        internal void ReceberMulta(Multa.Multa novaMulta)
+        {
+            Multas.Add(novaMulta);
         }
     }
 }

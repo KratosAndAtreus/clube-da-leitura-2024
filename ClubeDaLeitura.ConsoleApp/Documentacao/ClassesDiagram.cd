@@ -3,12 +3,12 @@
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloAmigo.Amigo" Collapsed="true">
     <Position X="4.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAACCAAAAEAEAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAACAAAgAAAAAAAAAAAEAEAA=</HashCode>
       <FileName>ModuloAmigo\Amigo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa" Collapsed="true">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="10" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAIAEAAAAAABAAAAAAEAAAAA=</HashCode>
       <FileName>ModuloAmigo\Multa.cs</FileName>
@@ -17,19 +17,19 @@
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloCaixa.Caixa" Collapsed="true">
     <Position X="6.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAEAIABAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAACAAAEAAAAAgAEAAAAAAIA=</HashCode>
       <FileName>ModuloCaixa\Caixa.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClubeDaLeitura.ConsoleApp.Emprestimo" Collapsed="true">
-    <Position X="2.5" Y="2" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAABAEAAAAA=</HashCode>
       <FileName>ModuloEmprestimo\Emprestimo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloReserva.Reserva" Collapsed="true">
-    <Position X="4.75" Y="3" Width="1.5" />
+    <Position X="10.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAAAEAAAAA=</HashCode>
       <FileName>ModuloReserva\Reserva.cs</FileName>
@@ -38,7 +38,7 @@
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloRevista.Revista" Collapsed="true">
     <Position X="4.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAEAAAAAQAAAACAAAAAAAAAAAAACCAAAAAAABA=</HashCode>
+      <HashCode>IAAAAAAEAAAAAQAAAACAAACAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>ModuloRevista\Revista.cs</FileName>
     </TypeIdentifier>
   </Class>

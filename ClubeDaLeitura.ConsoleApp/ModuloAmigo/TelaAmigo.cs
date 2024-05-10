@@ -1,4 +1,6 @@
 using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo

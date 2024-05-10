@@ -11,10 +11,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
     {
         public TelaAmigo telaAmigo = null;
         public TelaRevista telaRevista = null;
-        public TelaMulta TelaMulta = null;
+        public TelaMulta telaMulta = null;
 
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
+        public RepositorioMulta repositorioMulta = null;
 
         protected override EntidadeBase ObterRegistro()
         {
@@ -104,28 +105,41 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             int idEmprestimo = Convert.ToInt32(Console.ReadLine());
             Emprestimo emprestimoSelecionado = (Emprestimo)repositorio.SelecionaPorId(idEmprestimo);
 
+            VerificaAtraso(idEmprestimo);
 
+            ExibirMensagem("Emprestimo finalizado", ConsoleColor.Red);
 
         }
 
         public bool VerificaAtraso(int idEmprestimo)
         {
+            bool status = false;
             ArrayList emprestimosCadastrados = repositorio.PegaRegistros();
+            
             foreach (Emprestimo emprestimo in emprestimosCadastrados)
             {
+                TimeSpan tempoDecorrido = emprestimo.DataDeEmprestimo - DateTime.Now;
+                int valorDaMulta = 5 * tempoDecorrido.Days;
                 if (emprestimo.id != idEmprestimo)
                     continue;
                 else
                 {
                     if (emprestimo.DataDeDevolucao < DateTime.Now)
                     {
+                        emprestimo.StatusDoEmprestimo = true;
+                        Multa novaMulta = telaMulta.GeraMulta( valorDaMulta, emprestimo.Revista.Titulo, emprestimo.Amigo.Nome);
 
+                        emprestimo.Amigo.ReceberMulta(novaMulta);
+                    }
+                    else
+                    {
+                        emprestimo.StatusDoEmprestimo = false;
                     }
                     
                     break;
                 }
             }
-            return false;
+            return status;
         }
 
         public void CadastroTeste()

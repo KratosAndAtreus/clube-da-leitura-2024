@@ -1,46 +1,45 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
 {
     internal class TelaMulta : TelaBase
     {
+        public TelaAmigo telaAmigo = null;
+
+        public RepositorioAmigo repositorioAmigo = null;
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando Multas");
+            telaAmigo.VisualizarRegistros(true);
 
-            Console.WriteLine();
+            Console.WriteLine("Digite o id da Caixa desejada");
+            int idAmigo = Convert.ToInt32(Console.ReadLine());
+            Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionaPorId(idAmigo);
 
             Console.WriteLine(
-             "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20}",
-             "Id", "Tempo decorrido", "Valor", "Revista", "Amigo"
-         );
-
-            ArrayList multasCadastradas = repositorio.PegaRegistros();
-
-            foreach (Multa multas in multasCadastradas)
-            {
-                Console.WriteLine(
-                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-                multas.id, multas.TempoDecorrido, multas.Valor,
-                multas.Revista, multas.Amigo
+                "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20}",
+                "Id", "Tempo decorrido", "Valor", "Revista", "Amigo"
             );
+
+            foreach (Amigo multas in amigoSelecionado.Multas)
+            {
+                Console.WriteLine("Teste");
+                //Console.WriteLine(
+                //    "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
+                //    multas.id, multas.TempoDecorrido, multas.Valor,
+                //    multas.Revista, multas.Amigo
+                //);
             }
 
             Console.ReadLine();
             Console.WriteLine();
         }
 
-
-        protected EntidadeBase GeraMulta(int tempoDecorrido, int valor, Revista revista, Amigo amigo)
+        public Multa GeraMulta(int tempoDecorrido, string revista, string amigo)
         {
-            return new Multa(tempoDecorrido, valor, revista, amigo);
+            return new Multa(tempoDecorrido, revista, amigo);
         }
 
         public override char ApresentarMenu()
