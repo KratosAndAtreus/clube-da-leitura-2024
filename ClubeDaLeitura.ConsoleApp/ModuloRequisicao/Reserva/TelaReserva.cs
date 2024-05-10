@@ -14,7 +14,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
     internal class TelaReserva : TelaBase
     {
         public TelaRevista telaRevista;
-        public RepositorioRevista repositorioRevista ;
+        public RepositorioRevista repositorioRevista;
 
         public TelaAmigo telaAmigo;
         public RepositorioAmigo repositorioAmigo;
@@ -36,8 +36,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-                reserva.id, reserva.Revista.Titulo,reserva.DataDaReserva,
-                reserva.Amigo.Nome, reserva.StatusDaReserva, reserva.DataLimite
+                reserva.id, reserva.Revista.Titulo, reserva.DataDaReserva.ToShortTimeString(),
+                reserva.Amigo.Nome, reserva.StatusDaReserva, reserva.DataLimite.ToShortTimeString()
               );
             }
 

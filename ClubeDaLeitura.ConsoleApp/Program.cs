@@ -22,6 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 
+
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaRevista telaRevista = new TelaRevista();
             telaRevista.tipoEntidade = "Revista";
@@ -60,7 +61,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
             RepositorioMulta repositorioMulta = new RepositorioMulta();
             TelaMulta telaMulta = new TelaMulta();
-            telaMulta.tipoEntidade = "Milta";
+            telaMulta.tipoEntidade = "Multa";
             telaMulta.repositorio = repositorioMulta;
 
             while (true)
@@ -116,11 +117,11 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         else if (tela.tipoEntidade == "Amigo")
                         {
-                           while (true)
+                            while (true)
                             {
                                 tela = telaMulta;
                                 operacaoEscolhida = tela.ApresentarMenu();
-                                
+
                                 if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
                                 {
                                     tela = telaAmigo;
