@@ -61,7 +61,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
             RepositorioMulta repositorioMulta = new RepositorioMulta();
             TelaMulta telaMulta = new TelaMulta();
-            telaMulta.tipoEntidade = "Milta";
+            telaMulta.tipoEntidade = "Multa";
             telaMulta.repositorio = repositorioMulta;
 
             while (true)

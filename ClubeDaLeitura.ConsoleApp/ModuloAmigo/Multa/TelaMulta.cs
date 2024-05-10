@@ -1,5 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +13,34 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
     {
         public override void VisualizarRegistros(bool verTudo)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Visualizando Multas");
+
+            Console.WriteLine();
+
+            Console.WriteLine(
+             "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20}",
+             "Id", "Tempo decorrido", "Valor", "Revista", "Amigo"
+         );
+
+            ArrayList multasCadastradas = repositorio.PegaRegistros();
+
+            foreach (Multa multas in multasCadastradas)
+            {
+                Console.WriteLine(
+                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
+                multas.id, multas.TempoDecorrido, multas.Valor,
+                multas.Revista, multas.Amigo
+            );
+            }
+
+            Console.ReadLine();
+            Console.WriteLine();
         }
 
-        protected override EntidadeBase ObterRegistro()
+
+        protected EntidadeBase GeraMulta(int tempoDecorrido, int valor, Revista revista, Amigo amigo)
         {
-            throw new NotImplementedException();
+            return new Multa(tempoDecorrido, valor, revista, amigo);
         }
 
         public override char ApresentarMenu()
@@ -29,7 +53,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
 
             Console.WriteLine();
 
-            Console.WriteLine($"1 - visualizar Multas");
+            Console.WriteLine($"1 - Visualizar Multas");
             Console.WriteLine($"2 - Pagar Multas");
 
             Console.WriteLine("S - Voltar");
@@ -40,7 +64,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
             char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
 
             return operacaoEscolhida;
-        
+
+        }
+
+        protected override EntidadeBase ObterRegistro()
+        {
+            throw new NotImplementedException();
         }
     }
 }

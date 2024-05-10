@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloRevista;
+﻿using ClubeDaLeitura.ConsoleApp.Base;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
 {
-    public class Multa
+    public class Multa : EntidadeBase
     {
         public int TempoDecorrido { get; set; }
         public int Valor { get; set; }
@@ -19,6 +20,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa
             Valor = valor;
             Revista = revista;
             Amigo = amigo;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
     }
 }
