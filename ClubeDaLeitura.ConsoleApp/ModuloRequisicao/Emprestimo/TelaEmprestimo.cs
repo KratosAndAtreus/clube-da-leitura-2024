@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo.Multa;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
@@ -10,6 +11,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
     {
         public TelaAmigo telaAmigo = null;
         public TelaRevista telaRevista = null;
+        public TelaMulta TelaMulta = null;
 
         public RepositorioAmigo repositorioAmigo = null;
         public RepositorioRevista repositorioRevista = null;
@@ -30,11 +32,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
 
             
-            DateTime dataDeEmprestimo = DateTime.Now.AddDays(telaRevista.PegaCaixa(idRevista));
+            DateTime dataDeDevolucao = DateTime.Now.AddDays(telaRevista.PegaCaixa(idRevista));
 
             bool status = true;
 
-            Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada, DateTime.Now, dataDeEmprestimo, status);
+            Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada, DateTime.Now, dataDeDevolucao, status);
 
             return novoEmprestimo;
         }
@@ -95,7 +97,36 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             return operacaoEscolhida;
         }
 
+        public void FinalizarEmprestimo()
+        {
+            VisualizarRegistros(true);
+            Console.WriteLine("Digite o ID do Emprestimo desejado");
+            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
+            Emprestimo emprestimoSelecionado = (Emprestimo)repositorio.SelecionaPorId(idEmprestimo);
 
+
+
+        }
+
+        public bool VerificaAtraso(int idEmprestimo)
+        {
+            ArrayList emprestimosCadastrados = repositorio.PegaRegistros();
+            foreach (Emprestimo emprestimo in emprestimosCadastrados)
+            {
+                if (emprestimo.id != idEmprestimo)
+                    continue;
+                else
+                {
+                    if (emprestimo.DataDeDevolucao < DateTime.Now)
+                    {
+
+                    }
+                    
+                    break;
+                }
+            }
+            return false;
+        }
 
         public void CadastroTeste()
         {

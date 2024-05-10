@@ -147,7 +147,7 @@ namespace ClubeDaLeitura.ConsoleApp
                         else if (tela.tipoEntidade == "Emprestimo")
                         {
                             TelaEmprestimo telaConvertida = (TelaEmprestimo)tela;
-                            //telaConvertida
+                            telaConvertida.FinalizarEmprestimo();
                         }
 
                         else
