@@ -15,13 +15,11 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaAmigo telaAmigo = new TelaAmigo();
             telaAmigo.tipoEntidade = "Amigo";
             telaAmigo.repositorio = repositorioAmigo;
-            
+
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
-
-            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
 
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
@@ -35,8 +33,6 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevista = repositorioRevista;
 
-            RepositorioReserva repositorioReserva = new RepositorioReserva();
-            
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
             TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
             telaEmprestimo.tipoEntidade = "Emprestimo";
