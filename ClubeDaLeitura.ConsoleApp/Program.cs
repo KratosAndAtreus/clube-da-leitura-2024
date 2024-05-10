@@ -137,7 +137,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                                 if (operacaoEscolhida == '1')
                                 {
-                                    telaAmigo.VisualizarMultas();
+                                    tela.VisualizarRegistros(true);
                                 }
                                 else if (operacaoEscolhida == '2')
                                 {
