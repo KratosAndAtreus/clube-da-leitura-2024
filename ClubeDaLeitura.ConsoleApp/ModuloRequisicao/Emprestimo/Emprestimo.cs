@@ -16,11 +16,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
         public DateTime DataDeDevolucao { get; set; }
         public bool StatusDoEmprestimo { get; set; }
 
-        public Emprestimo(Amigo amigo, Revista revista, DateTime dataDeEmprestimo, bool statusDoEmprestimo)
+        public Emprestimo(Amigo amigo, Revista revista, DateTime dataDeEmprestimo, DateTime dataDeDevolucao, bool statusDoEmprestimo)
         {
             Amigo = amigo;
             Revista = revista;
             DataDeEmprestimo = dataDeEmprestimo;
+            DataDeDevolucao = dataDeDevolucao;
             StatusDoEmprestimo = statusDoEmprestimo;
         }
 

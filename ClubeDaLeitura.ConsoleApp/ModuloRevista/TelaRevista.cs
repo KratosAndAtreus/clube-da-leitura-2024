@@ -2,6 +2,7 @@ using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Base;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
@@ -59,6 +60,23 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             Console.ReadLine();
             Console.WriteLine();
+        }
+
+        public int PegaCaixa(int idRevista)
+        {
+            int tempoDeEmprestimo = 0;
+            ArrayList revistasCadastradas = repositorio.PegaRegistros();
+            foreach (Revista revista in revistasCadastradas)
+            {
+                if (revista.id != idRevista)
+                    continue;
+                else
+                {
+                    tempoDeEmprestimo= revista.Caixa.TempoDeEmprestimo;
+                    break;
+                }    
+            }
+            return tempoDeEmprestimo;
         }
 
         public void CadastroTeste()

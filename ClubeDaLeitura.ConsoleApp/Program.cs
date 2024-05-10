@@ -136,14 +136,22 @@ namespace ClubeDaLeitura.ConsoleApp
 
                                 }
 
+                                else
+                                    continue;
+
                             }
 
                         }
 
-                        else
+                        else if (tela.tipoEntidade == "Emprestimo")
                         {
-                            continue;
+                            TelaEmprestimo telaConvertida = (TelaEmprestimo)tela;
+                            //telaConvertida
                         }
+
+                        else
+                            continue;
+                        
                     }
                 }
             }

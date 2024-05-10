@@ -29,13 +29,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             int idRevista = Convert.ToInt32(Console.ReadLine());
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
 
-            Console.WriteLine("Por favor, informe a DATA do emprestimo");
-            DateTime dataDeEmprestimo = Convert.ToDateTime(Console.ReadLine());
-
+            
+            DateTime dataDeEmprestimo = DateTime.Now.AddDays(telaRevista.PegaCaixa(idRevista));
 
             bool status = true;
 
-            Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada, dataDeEmprestimo, status);
+            Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada, DateTime.Now, dataDeEmprestimo, status);
 
             return novoEmprestimo;
         }
@@ -70,12 +69,41 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             Console.WriteLine();
         }
 
+        public override char ApresentarMenu()
+        {
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Finallizar {tipoEntidade}");
+
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("Escolha uma das opções: ");
+            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
+
+            return operacaoEscolhida;
+        }
+
+
+
         public void CadastroTeste()
         {
             Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionaPorId(0);
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(0);
-            DateTime dataDeEmprestimo = Convert.ToDateTime("12/12/2002");
-            Emprestimo emprestimoTeste = new Emprestimo(amigoSelecionado, revistaSelecionada, dataDeEmprestimo, true);
+            //DateTime dataDeEmprestimo = Convert.ToDateTime("12/12/2002");
+            DateTime dataDeDevolucao = DateTime.Now.AddDays(telaRevista.PegaCaixa(0));
+            Emprestimo emprestimoTeste = new Emprestimo(amigoSelecionado, revistaSelecionada, DateTime.Now, dataDeDevolucao, true);
 
             repositorio.Cadastrar(emprestimoTeste);
         }
