@@ -15,7 +15,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
         protected override EntidadeBase ObterRegistro()
         {
-            
+
             Console.WriteLine("Por favor, informe o TITULO da revista");
             string titulo = Convert.ToString(Console.ReadLine());
 
@@ -26,7 +26,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             string ano = Convert.ToString(Console.ReadLine());
 
             telaCaixa.VisualizarRegistros(false);
-            
+
             Console.WriteLine("Por favor, informe o ID da CAIXA da revista");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
             Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
@@ -47,7 +47,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
              "Id", "Titulo", "Numero da Edicao", "Ano", "Caixa", "Emprestada ?"
          );
 
-            ArrayList revistasCadastradas = repositorio.PegaRegistros();
+            List<EntidadeBase> revistasCadastradas = repositorio.PegaRegistros();
 
             foreach (Revista revista in revistasCadastradas)
             {
@@ -65,16 +65,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
         public int PegaCaixa(int idRevista)
         {
             int tempoDeEmprestimo = 0;
-            ArrayList revistasCadastradas = repositorio.PegaRegistros();
+            List<EntidadeBase> revistasCadastradas = repositorio.PegaRegistros();
             foreach (Revista revista in revistasCadastradas)
             {
                 if (revista.id != idRevista)
                     continue;
                 else
                 {
-                    tempoDeEmprestimo= revista.Caixa.TempoDeEmprestimo;
+                    tempoDeEmprestimo = revista.Caixa.TempoDeEmprestimo;
                     break;
-                }    
+                }
             }
             return tempoDeEmprestimo;
         }

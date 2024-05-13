@@ -32,7 +32,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
             int idRevista = Convert.ToInt32(Console.ReadLine());
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
 
-            
+
             DateTime dataDeDevolucao = DateTime.Now.AddDays(telaRevista.PegaCaixa(idRevista));
 
             bool status = true;
@@ -53,17 +53,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
              "Id", "Amigo", "Revista", "Data do Emprestimo", "Data de Devolução", "Status"
          );
 
-            ArrayList EmprestimosCadastrados = repositorio.PegaRegistros();
+            List<EntidadeBase> EmprestimosCadastrados = repositorio.PegaRegistros();
 
             foreach (Emprestimo emprestimo in EmprestimosCadastrados)
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20} | {5, -15}",
-                emprestimo.id, 
-                emprestimo.Amigo.Nome, 
+                emprestimo.id,
+                emprestimo.Amigo.Nome,
                 emprestimo.Revista.Titulo,
-                emprestimo.DataDeEmprestimo.ToShortDateString(), 
-                emprestimo.DataDeDevolucao.ToShortDateString(), 
+                emprestimo.DataDeEmprestimo.ToShortDateString(),
+                emprestimo.DataDeDevolucao.ToShortDateString(),
                 emprestimo.StatusDoEmprestimo
               );
             }
@@ -114,8 +114,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
         public bool VerificaAtraso(int idEmprestimo)
         {
             bool status = false;
-            ArrayList emprestimosCadastrados = repositorio.PegaRegistros();
-            
+            List<EntidadeBase> emprestimosCadastrados = repositorio.PegaRegistros();
+
             foreach (Emprestimo emprestimo in emprestimosCadastrados)
             {
                 TimeSpan tempoDecorrido = emprestimo.DataDeEmprestimo - DateTime.Now;
@@ -127,7 +127,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
                     if (emprestimo.DataDeDevolucao < DateTime.Now)
                     {
                         emprestimo.StatusDoEmprestimo = true;
-                        Multa novaMulta = telaMulta.GeraMulta( valorDaMulta, emprestimo.Revista.Titulo, emprestimo.Amigo.Nome);
+                        Multa novaMulta = telaMulta.GeraMulta(valorDaMulta, emprestimo.Revista.Titulo, emprestimo.Amigo.Nome);
 
                         emprestimo.Amigo.ReceberMulta(novaMulta);
                     }
@@ -135,7 +135,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Emprestimo
                     {
                         emprestimo.StatusDoEmprestimo = false;
                     }
-                    
+
                     break;
                 }
             }

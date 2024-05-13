@@ -27,17 +27,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
 
             Console.WriteLine(
            "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-           "Id", "Revista", "Data da reserva", "Amigo", "Status da reserva, Data Limite"
+           "Id", "Revista", "Data da reserva", "Amigo", "Status da reserva", "Data Limite"
        );
 
-            ArrayList reservasCadastradas = repositorio.PegaRegistros();
+            List<EntidadeBase> reservasCadastradas = repositorio.PegaRegistros();
 
             foreach (Reserva reserva in reservasCadastradas)
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-                reserva.id, reserva.Revista.Titulo, reserva.DataDaReserva.ToShortTimeString(),
-                reserva.Amigo.Nome, reserva.StatusDaReserva, reserva.DataLimite.ToShortTimeString()
+                reserva.id, reserva.Revista.Titulo, reserva.DataDaReserva.ToShortDateString(),
+                reserva.Amigo.Nome, reserva.StatusDaReserva, reserva.DataLimite.ToShortDateString()
               );
             }
 
@@ -63,7 +63,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRequisicao.Reserva
             DateTime dataLimite = DateTime.Now.AddDays(2);
             bool status = false;
 
-            return new Reserva(revistaSelecionada, DateTime.Now, dataLimite, amigoSelecionado, status);
+            return new Reserva(revistaSelecionada, dataLimite, amigoSelecionado, status);
         }
     }
 

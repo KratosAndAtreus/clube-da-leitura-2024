@@ -4,7 +4,7 @@ namespace ClubeDaLeitura.ConsoleApp.Base
 {
     internal class RepositorioBase
     {
-        protected ArrayList registros = new ArrayList();
+        protected List<EntidadeBase> registros = new();
 
         protected int contadorId = 0;
 
@@ -46,7 +46,7 @@ namespace ClubeDaLeitura.ConsoleApp.Base
             return false;
         }
 
-        public ArrayList PegaRegistros()
+        public List<EntidadeBase> PegaRegistros()
         {
             return registros;
         }

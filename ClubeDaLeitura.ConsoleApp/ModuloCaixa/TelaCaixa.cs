@@ -35,7 +35,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 "Id", "Etiqueta", "Cor", "Tempo de Emprestimo"
             );
 
-            ArrayList caixasCadastradas = repositorio.PegaRegistros();
+            List<EntidadeBase> caixasCadastradas = repositorio.PegaRegistros();
 
             foreach (Caixa caixa in caixasCadastradas)
             {

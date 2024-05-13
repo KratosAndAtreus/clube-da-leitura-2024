@@ -35,7 +35,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
                 "Id", "Nome", "Responsavel", "Telefone", "Endereco"
             );
 
-            ArrayList amigosCadastrados = repositorio.PegaRegistros();
+            List<EntidadeBase> amigosCadastrados = repositorio.PegaRegistros();
 
             foreach (Amigo amigo in amigosCadastrados)
             {
@@ -54,7 +54,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine($"        Gestï¿½o de {tipoEntidade}s        ");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
@@ -69,7 +69,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
             Console.WriteLine();
 
-            Console.Write("Escolha uma das opções: ");
+            Console.Write("Escolha uma das opï¿½ï¿½es: ");
             char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
 
             return operacaoEscolhida;
